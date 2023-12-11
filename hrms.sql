@@ -96,19 +96,20 @@ CREATE TABLE `documents` (
   `user_id` varchar(255) NOT NULL,
   `dept_id` int(11) NOT NULL,
   `document1` varchar(255) DEFAULT NULL,
-  `document2` varchar(255) DEFAULT NULL,
-  `document3` varchar(255) DEFAULT NULL,
-  `document4` varchar(255) DEFAULT NULL,
-  `document5` varchar(255) DEFAULT NULL,
-  `document6` varchar(255) DEFAULT NULL,
-  `uploaded_date` timestamp NOT NULL DEFAULT current_timestamp()
+  `application` varchar(255) DEFAULT NULL,
+  `certificate` varchar(255) DEFAULT NULL,
+  `appointment` varchar(255) DEFAULT NULL,
+  `discipline` varchar(255) DEFAULT NULL,
+  `others` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `documents`
 --
 
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (51, '85388', 34, '1628519548PHOTO.jpg', '1628519548APPLICATION LETTER AND CV..pdf', '1628519548CERTIFICATES.pdf', '1628519548APPOINTMENT LETTERS AND PARTICULARS.pdf', '1628519548WARNING LETTER.pdf', '1628519548OTHERS.pdf', '2021-08-09 14:32:28'),
 (52, '86461', 34, '1628532655PHOTO.jpg', '1628532655APPLICATION AND RESUME.pdf', '1628532655ACADEMIC DOCS.pdf', '1628532655APPOINTMENT LEETERS.pdf', '1628532655DICIPLINE.pdf', '1628532655OTHERS.pdf', '2021-08-09 18:10:55'),
 (53, '86698', 34, '1628532786PHOTO.jpg', '1628532786APPLICATION LETTER.pdf', '1628532786', '1628532786APOINTMEN LETTER AND PARTICULARS.pdf', '1628532786', '1628532786OTHERS.pdf', '2021-08-09 18:13:06'),
@@ -378,7 +379,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (327, '52844', 12, '1629643845Photo007.jpg', '1629643845Application010.pdf', '1629643845Academics011.pdf', '1629643845Appointment009.pdf', '1629643845Discplinary013.pdf', '1629643845Others012.pdf', '2021-08-22 14:50:45'),
 (328, '52544', 12, '1629643941Photo001.jpg', '1629643941Application003.pdf', '1629643941Academics004.pdf', '1629643941Appointment002.pdf', '1629643941Discpline006.pdf', '1629643941Others005.pdf', '2021-08-22 14:52:21'),
 (329, '52843', 7, '1629644007Photo006.jpg', '1629644007Application007.pdf', '1629644007Academics008.pdf', '1629644007', '1629644007', '1629644007Others009.pdf', '2021-08-22 14:53:27');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (330, '52933', 12, '1629644087Photo012.jpg', '1629644087Application014.pdf', '1629644087Academics015.pdf', '1629644087Appointment013.pdf', '1629644087', '1629644087Others016.pdf', '2021-08-22 14:54:47'),
 (331, '52839', 12, '1629644246Photo023.jpg', '1629644246Application011.pdf', '1629644246Academics012.pdf', '1629644246', '1629644246Discpline009.pdf', '1629644246Others.pdf', '2021-08-22 14:57:26'),
 (332, '52938', 12, '1629645126Photo006.jpg', '1629645126Application.pdf', '1629645126Academics011.pdf', '1629645126Appointment008.pdf', '1629645126Discpline007.pdf', '1629645126Others009.pdf', '2021-08-22 15:12:06'),
@@ -630,7 +631,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (580, '85764', 16, '1630320258PHOTO.jpg', '1630320258APPLICATION LETTER.pdf', '1630320258', '1630320258APPOINTMENT LETTERS.pdf', '1630320258', '1630320258OTHERS.pdf', '2021-08-30 10:44:18'),
 (581, '86469', 16, '1630320320PHOTO.jpg', '1630320320APPLICATION LETTER.pdf', '1630320320', '1630320320APPOINTMENT LETTER.pdf', '1630320320', '1630320320OTHERS.pdf', '2021-08-30 10:45:20'),
 (582, '86473', 16, '1630320406PHOTO.jpg', '1630320406APPLICATION LETTER.pdf', '1630320406', '1630320406APPOINTMENT LETTER.pdf', '1630320406', '1630320406OTHERS.pdf', '2021-08-30 10:46:46');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (583, '86470', 16, '1630320454PHOTO.jpg', '1630320454APPLICATION LETTER.pdf', '1630320454', '1630320454APPOINTMENT LETTER.pdf', '1630320454', '1630320454OTHERS.pdf', '2021-08-30 10:47:34'),
 (584, '86471', 16, '1630320548PHOTO.jpg', '1630320548APPLICATION LETTER.pdf', '1630320548', '1630320548APPOINTMENT LETTER.pdf', '1630320548', '1630320548OTHERS.pdf', '2021-08-30 10:49:08'),
 (585, '86472', 16, '1630320613PHOTO.jpg', '1630320613APPLICATION LETTER.pdf', '1630320613', '1630320613APPOINTMENT LETTER.pdf', '1630320613', '1630320613OTHERS.pdf', '2021-08-30 10:50:13'),
@@ -888,7 +889,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (840, '85774', 7, '1631042565photo.jpg', '1631042565application.pdf', '1631042565certificate.pdf', '1631042565appointments.pdf', '1631042565', '1631042565others.pdf', '2021-09-07 19:22:45'),
 (841, '85732', 12, '1631042747photo.jpg', '1631042747application.pdf', '1631042747certificates.pdf', '1631042747appointments.pdf', '1631042747', '1631042747others.pdf', '2021-09-07 19:25:47'),
 (842, '85798', 12, '1631042808photo.jpg', '1631042808application.pdf', '1631042808certificates.pdf', '1631042808appointments.pdf', '1631042808discipline.pdf', '1631042808others.pdf', '2021-09-07 19:26:48');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (843, '86952', 12, '1631113156PHOTO.jpg', '1631113156APPLICATION LETTERS.pdf', '1631113156CERTIFICATE.pdf', '1631113156APPOINTMENT LETTER.pdf', '1631113156', '1631113156OTHERS.pdf', '2021-09-08 14:59:16'),
 (844, '85405', 12, '1631113440PHOTO.jpg', '1631113440APPLICATION LETTER.pdf', '1631113440', '1631113440APPOINTMENT LETTER.pdf', '1631113440DISCIPLINES.pdf', '1631113440OTHERS.pdf', '2021-09-08 15:04:00'),
 (845, '85904', 12, '1631117441PHOTO.jpg', '1631117441APPLICATION LETTER.pdf', '1631117441CERTIFICATES.pdf', '1631117441APPOINTMENT LETTERS.pdf', '1631117441', '1631117441OTHERS.pdf', '2021-09-08 16:10:41'),
@@ -1143,7 +1144,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (1095, '29751', 10, '1632049822Photo008.jpg', '1632049822Applic010.pdf', '1632049822', '1632049822Appoint011.pdf', '1632049822Discpln009.pdf', '1632049822Others.pdf', '2021-09-19 11:10:22'),
 (1096, '87198', 5, '1632049880Photo003.jpg', '1632049880Applic006.pdf', '1632049880Educ007.pdf', '1632049880Appoint004.pdf', '1632049880Discpln005.pdf', '1632049880Others008.pdf', '2021-09-19 11:11:20'),
 (1097, '84494', 7, '1632049944Photos001.jpg', '1632049944Applic005.pdf', '1632049944Educ006.pdf', '1632049944Appoint003.pdf', '1632049944Discpln002.pdf', '1632049944Others007.pdf', '2021-09-19 11:12:24');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (1098, '86957', 12, '1632049994Photo002.jpg', '1632049994Applic005.pdf', '1632049994Educ006.pdf', '1632049994Appoint003.pdf', '1632049994', '1632049994Others004.pdf', '2021-09-19 11:13:14'),
 (1099, '83714', 38, '1632059781photo.jpg', '1632059781application.pdf', '1632059781certificate.pdf', '1632059781appointments.pdf', '1632059781', '1632059781others.pdf', '2021-09-19 13:56:21'),
 (1100, '50714', 12, '1632059960photo.jpg', '1632059960application.pdf', '1632059960certificates.pdf', '1632059960appointments.pdf', '1632059960', '1632059960others.pdf', '2021-09-19 13:59:20'),
@@ -1395,7 +1396,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (1347, '58223', 27, '1632942235PHOTO.jpg', '1632942235APPLICATION.pdf', '1632942235CERTIFICATE.pdf', '1632942235APPOINTMENT.pdf', '1632942235DISCIPLINE.pdf', '1632942235OTHERS.pdf', '2021-09-29 19:03:55'),
 (1348, '59331', 27, '1632942301photo.jpg', '1632942301application.pdf', '1632942301certificate.pdf', '1632942301appointment.pdf', '1632942301discipline.pdf', '1632942301others.pdf', '2021-09-29 19:05:01'),
 (1349, '59490', 27, '1632942364PHOTO.jpg', '1632942364APPLICATION.pdf', '1632942364CERTIFICATE.pdf', '1632942364APPOINTMENT.pdf', '1632942364DISCIPLINE.pdf', '1632942364OTERS.pdf', '2021-09-29 19:06:04');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (1350, '59345', 27, '1632942460photo.jpg', '1632942460application.pdf', '1632942460certificate.pdf', '1632942460appointment.pdf', '1632942460disacipline.pdf', '1632942460others.pdf', '2021-09-29 19:07:40'),
 (1351, '86996', 40, '1633004163PHOTO.jpg', '1633004163APPLICATION LETTER.pdf', '1633004163CERTIFICATE.pdf', '1633004163APPOINTMENT LETTERS.pdf', '1633004163', '1633004163OTHERS.pdf', '2021-09-30 12:16:03'),
 (1352, '86995', 40, '1633004259PHOTO.jpg', '1633004259APPLICATION LETTER.pdf', '1633004259CERTIFICATES.pdf', '1633004259APPOINTMENT LETTERS.pdf', '1633004259DISCIPLINE.pdf', '1633004259OTHERS.pdf', '2021-09-30 12:17:39'),
@@ -1649,7 +1650,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (1603, '12466', 25, '1633880136PHOTO.jpg', '1633880136', '1633880136', '1633880136', '1633880136', '1633880136OTHERS.pdf', '2021-10-10 15:35:36'),
 (1604, '67422', 27, '1633881277Photo002.jpg', '1633881277Applic005.pdf', '1633881277Cert006.pdf', '1633881277Appoint004.pdf', '1633881277Discpln003.pdf', '1633881277Others007.pdf', '2021-10-10 15:54:37'),
 (1605, '67976', 27, '1633881336Photyo062.jpg', '1633881336Applic064.pdf', '1633881336Cert065.pdf', '1633881336', '1633881336Discpln063.pdf', '1633881336Others066.pdf', '2021-10-10 15:55:36');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (1606, '65277', 40, '1633881361PHOTO.jpg', '1633881361APPLICATION LETTER.pdf', '1633881361CERTIFICATES.pdf', '1633881361APPOINTMENT LETTER.pdf', '1633881361DISCIPLINE.pdf', '1633881361OTHERS.pdf', '2021-10-10 15:56:01'),
 (1608, '64480', 40, '1633881538PHOTO.jpg', '1633881538APPLICATION LETTER.pdf', '1633881538CERTIFICATES.pdf', '1633881538APPOINTMENT LETTER.pdf', '1633881538DISCIPLINE.pdf', '1633881538OTHERS.pdf', '2021-10-10 15:58:58'),
 (1609, '65284', 40, '1633881593PHOTO.jpg', '1633881593APPLICATION LETTER.pdf', '1633881593CERTIFICATES.pdf', '1633881593APPOINTMENT LETTER.pdf', '1633881593', '1633881593OTHERS.pdf', '2021-10-10 15:59:53'),
@@ -1900,7 +1901,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (1857, '86510', 27, '1634827193photo.jpg', '1634827193application.pdf', '1634827193certificates.pdf', '1634827193appointments.pdf', '1634827193', '1634827193others.pdf', '2021-10-21 14:39:53'),
 (1858, '86506', 27, '1634912422Photo.jpg', '1634912422Applications.pdf', '1634912422Certificates.pdf', '1634912422Appointments.pdf', '1634912422Discipline.pdf', '1634912422Others.pdf', '2021-10-22 14:20:22'),
 (1859, '84506', 27, '1634913097Photo.jpg', '1634913097Applications.pdf', '1634913097', '1634913097Appointments.pdf', '1634913097Discipline.pdf', '1634913097Others.pdf', '2021-10-22 14:31:37');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (1860, '86918', 27, '1634913182Photo.jpg', '1634913182Appications.pdf', '1634913182', '1634913182Appointments.pdf', '1634913182', '1634913182Others.pdf', '2021-10-22 14:33:02'),
 (1861, '86577', 27, '1634913459Photo.jpg', '1634913459Applications.pdf', '1634913459', '1634913459APPointments.pdf', '1634913459Discipline.pdf', '1634913459Others.pdf', '2021-10-22 14:37:39'),
 (1862, '85938', 27, '1634913527Photo.jpg', '1634913527Applications.pdf', '1634913527Certificate.pdf', '1634913527Appointments.pdf', '1634913527Discipline.pdf', '1634913527Others.pdf', '2021-10-22 14:38:47'),
@@ -2153,7 +2154,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (2109, '62877', 28, '1635863465PHOTO.jpg', '1635863465APPLICATION.pdf', '1635863465CERTIFICATES.pdf', '1635863465APPOINTMENTS.pdf', '1635863465discipline.pdf', '1635863465others.pdf', '2021-11-02 14:31:05'),
 (2110, '64465', 33, '1635863562PHOTO.jpg', '1635863562APPLICATION.pdf', '1635863562CERTIFICATE.pdf', '1635863562APPOINTMENTS.pdf', '1635863562DISCIPLINE.pdf', '1635863562OTHERS.pdf', '2021-11-02 14:32:42'),
 (2111, '54740', 33, '1635863620PHOTO.jpg', '1635863620APPLICATION.pdf', '1635863620CERTIFICATES.pdf', '1635863620APPOINTMENT.pdf', '1635863620', '1635863620OTHERS.pdf', '2021-11-02 14:33:40');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (2112, '59045', 4, '1635863806PHOTO.jpg', '1635863806APPLICATION.pdf', '1635863806CERTIFICATES.pdf', '1635863806APPOINTMENT.pdf', '1635863806DISCIPLINE.pdf', '1635863806OTHERS.pdf', '2021-11-02 14:36:46'),
 (2113, '83725', 33, '1635863863PHOTO.jpg', '1635863863APPLICATION.pdf', '1635863863CERTIFICARES.pdf', '1635863863APPOINTMENTS.pdf', '1635863863DISCIPLINE.pdf', '1635863863OTHERS.pdf', '2021-11-02 14:37:43'),
 (2114, '83972', 32, '1635926425phoyo.PNG', '1635926425APPLICATION.pdf', '1635926425', '1635926425', '1635926425', '1635926425NDAMANYWA JOSEPH064.pdf', '2021-11-03 08:00:25'),
@@ -2412,7 +2413,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (2369, '68609', 27, '1637221037photo.jpg', '1637221037application letter.pdf', '1637221037certificates.pdf', '1637221037', '1637221037disciplines.pdf', '1637221037others.pdf', '2021-11-18 07:37:17'),
 (2370, '86306', 26, '1637221318photo.jpg', '1637221318application letter and resume.pdf', '1637221318certificates.pdf', '1637221318appointment letters.pdf', '1637221318', '1637221318others.pdf', '2021-11-18 07:41:58'),
 (2371, '86302', 26, '1637221515photo.jpg', '1637221515application letter.pdf', '1637221515certificates.pdf', '1637221515appointment letters.pdf', '1637221515', '1637221515others.pdf', '2021-11-18 07:45:15');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (2372, '30226', 11, '1637230636photo.jpg', '1637230636', '1637230636', '1637230636', '1637230636discipline.pdf', '1637230636others.pdf', '2021-11-18 10:17:16'),
 (2373, '26988', 11, '1637230710photo.jpg', '1637230710application letter.pdf', '1637230710certificates.pdf', '1637230710', '1637230710', '1637230710others.pdf', '2021-11-18 10:18:30'),
 (2374, '24212', 11, '1637230762photo.jpg', '1637230762', '1637230762', '1637230762', '1637230762', '1637230762others.pdf', '2021-11-18 10:19:22'),
@@ -2707,7 +2708,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (2667, '77637', 32, '1638258956PHOTO.jpg', '1638258956', '1638258956', '1638258956', '1638258956', '1638258956OTHERS.pdf', '2021-11-30 07:55:56'),
 (2668, '77636', 32, '1638259023PHOTO.jpg', '1638259023', '1638259023', '1638259023', '1638259023', '1638259023OTHERS.pdf', '2021-11-30 07:57:03'),
 (2669, '77634', 32, '1638259116PHOTO.jpg', '1638259116', '1638259116', '1638259116', '1638259116', '1638259116OTHERS.pdf', '2021-11-30 07:58:36');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (2670, '77633', 32, '1638259171PHOTO.jpg', '1638259171', '1638259171', '1638259171', '1638259171', '1638259171OTHERS.pdf', '2021-11-30 07:59:31'),
 (2671, '77633', 32, '1638259325', '1638259325', '1638259325', '1638259325', '1638259325', '1638259325OTHERS.pdf', '2021-11-30 08:02:05'),
 (2672, '77630', 32, '1638259383PHOTO.jpg', '1638259383', '1638259383', '1638259383', '1638259383', '1638259383OTHERS.pdf', '2021-11-30 08:03:03'),
@@ -2995,7 +2996,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (2959, '85349', 32, '1639387469PHOTO.jpg', '1639387469', '1639387469', '1639387469', '1639387469', '1639387469OTHERS.pdf', '2021-12-13 09:24:29'),
 (2960, '85348', 32, '1639387606PHOTO.jpg', '1639387606', '1639387606', '1639387606', '1639387606', '1639387606OTHERS.pdf', '2021-12-13 09:26:46'),
 (2961, '85347', 32, '1639387674PHOTO.jpg', '1639387674', '1639387674', '1639387674', '1639387674', '1639387674OTHERS.pdf', '2021-12-13 09:27:54');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (2962, '49698', 43, '1639388060photo.jpg', '1639388060', '1639388060certificate.pdf', '1639388060appointment  letter.pdf', '1639388060disciplines.pdf', '1639388060others.pdf', '2021-12-13 09:34:20'),
 (2963, '85345', 32, '1639388147PHOTO.jpg', '1639388147', '1639388147', '1639388147', '1639388147', '1639388147OTHERS.pdf', '2021-12-13 09:35:47'),
 (2965, '85208', 32, '1639388291PHOTO.jpg', '1639388291', '1639388291', '1639388291', '1639388291', '1639388291OTHERS.pdf', '2021-12-13 09:38:11'),
@@ -3333,7 +3334,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (3305, '79796', 24, '1640182952photo.jpg', '1640182952', '1640182952', '1640182952', '1640182952', '1640182952others.pdf', '2021-12-22 14:22:32'),
 (3306, '79800', 24, '1640183559photo.jpg', '1640183559', '1640183559', '1640183559', '1640183559', '1640183559others.pdf', '2021-12-22 14:32:39'),
 (3307, '80138', 24, '1640183890photo.jpg', '1640183890', '1640183890', '1640183890', '1640183890', '1640183890others.pdf', '2021-12-22 14:38:10');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (3308, '80245', 24, '1640184253photo.jpg', '1640184253', '1640184253', '1640184253', '1640184253', '1640184253others.pdf', '2021-12-22 14:44:13'),
 (3309, '80253', 24, '1640184578photo.jpg', '1640184578', '1640184578', '1640184578', '1640184578', '1640184578others.pdf', '2021-12-22 14:49:38'),
 (3310, '80583', 24, '1640184841photo.jpg', '1640184841', '1640184841', '1640184841', '1640184841', '1640184841others.pdf', '2021-12-22 14:54:01'),
@@ -3671,7 +3672,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (3643, '86068', 24, '1642083788photo.jpg', '1642083788', '1642083788', '1642083788', '1642083788discipline.pdf', '1642083788others.pdf', '2022-01-13 14:23:08'),
 (3644, '57624', 24, '1642084819photo.jpg', '1642084819', '1642084819', '1642084819', '1642084819', '1642084819others.pdf', '2022-01-13 14:40:19'),
 (3645, '58906', 24, '1642085358photo.jpg', '1642085358', '1642085358', '1642085358', '1642085358disciplines.pdf', '1642085358others.pdf', '2022-01-13 14:49:18');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (3646, '59659', 24, '1642142821photo.jpg', '1642142821', '1642142821', '1642142821', '1642142821', '1642142821others.pdf', '2022-01-14 06:47:01'),
 (3647, '59585', 24, '1642143958photo.jpg', '1642143958', '1642143958', '1642143958', '1642143958disciplines.pdf', '1642143958others.pdf', '2022-01-14 07:05:58'),
 (3648, '59660', 24, '1642145509photo.jpg', '1642145509', '1642145509', '1642145509', '1642145509', '1642145509others.pdf', '2022-01-14 07:31:49'),
@@ -3996,7 +3997,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (3967, '84658', 4, '1643375775photo.jpg', '1643375775', '1643375775', '1643375775', '1643375775', '1643375775others.pdf', '2022-01-28 13:16:15'),
 (3968, '84660', 4, '1643376023photo.jpg', '1643376023', '1643376023', '1643376023', '1643376023', '1643376023others.pdf', '2022-01-28 13:20:23'),
 (3969, '82611', 4, '1643453433photo.jpg', '1643453433', '1643453433', '1643453433', '1643453433', '1643453433others.pdf', '2022-01-29 10:50:33');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (3970, '82575', 4, '1643453562photo.jpg', '1643453562', '1643453562', '1643453562', '1643453562', '1643453562others.pdf', '2022-01-29 10:52:42'),
 (3971, '82540', 4, '1643453599photo.jpg', '1643453599', '1643453599', '1643453599', '1643453599', '1643453599others.pdf', '2022-01-29 10:53:19'),
 (3972, '82539', 4, '1643453634photo.jpg', '1643453634', '1643453634', '1643453634', '1643453634', '1643453634others.pdf', '2022-01-29 10:53:54'),
@@ -4328,7 +4329,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (4303, '68465', 4, '1644326727photo.jpg', '1644326727', '1644326727', '1644326727', '1644326727', '1644326727others.pdf', '2022-02-08 13:25:27'),
 (4304, '68453', 4, '1644327471', '1644327471', '1644327471', '1644327471', '1644327471', '1644327471others.pdf', '2022-02-08 13:37:51'),
 (4305, '68411', 4, '1644327924photo.jpg', '1644327924', '1644327924', '1644327924', '1644327924', '1644327924others.pdf', '2022-02-08 13:45:24');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (4306, '67668', 4, '1644328307', '1644328307', '1644328307', '1644328307', '1644328307', '1644328307others.pdf', '2022-02-08 13:51:47'),
 (4307, '65184', 4, '1644384763photo.jpg', '1644384763', '1644384763', '1644384763', '1644384763', '1644384763others.pdf', '2022-02-09 05:32:43'),
 (4308, '65160', 4, '1644385350photo.jpg', '1644385350', '1644385350', '1644385350', '1644385350discipline.pdf', '1644385350others.pdf', '2022-02-09 05:42:30'),
@@ -4673,7 +4674,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (4648, '86660', 42, '1645080746PHOTO.jpg', '1645080746', '1645080746', '1645080746', '1645080746', '1645080746OTHERS.pdf', '2022-02-17 06:52:26'),
 (4649, '86204', 42, '1645080844PHOTO.jpg', '1645080844', '1645080844', '1645080844', '1645080844', '1645080844OTHERS.pdf', '2022-02-17 06:54:04'),
 (4650, '86202', 42, '1645080923PHOTO.jpg', '1645080923', '1645080923', '1645080923', '1645080923', '1645080923OTHERS.pdf', '2022-02-17 06:55:23');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (4651, '86203', 42, '1645080990PHOTO.jpg', '1645080990', '1645080990', '1645080990', '1645080990', '1645080990OTHERS.pdf', '2022-02-17 06:56:30'),
 (4652, '86200', 42, '1645081054PHOTO.jpg', '1645081054', '1645081054', '1645081054', '1645081054', '1645081054OTHERS.pdf', '2022-02-17 06:57:34'),
 (4653, '83872', 23, '1645081089photo.jpg', '1645081089', '1645081089', '1645081089', '1645081089', '1645081089others.pdf', '2022-02-17 06:58:09'),
@@ -5011,7 +5012,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (4986, '70854', 23, '1646123278photo.jpg', '1646123278', '1646123278', '1646123278', '1646123278', '1646123278others.pdf', '2022-03-01 08:27:58'),
 (4987, '70860', 23, '1646123769photo.jpg', '1646123769', '1646123769', '1646123769', '1646123769discipline.pdf', '1646123769others.pdf', '2022-03-01 08:36:09'),
 (4988, '71261', 23, '1646124445photo.jpg', '1646124445', '1646124445', '1646124445', '1646124445discipline.pdf', '1646124445others.pdf', '2022-03-01 08:47:25');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (4989, '71453', 23, '1646125089photo.jpg', '1646125089', '1646125089', '1646125089', '1646125089', '1646125089others.pdf', '2022-03-01 08:58:09'),
 (4990, '61481', 23, '1646125861photo.jpg', '1646125861', '1646125861', '1646125861', '1646125861discipline.pdf', '1646125861others.pdf', '2022-03-01 09:11:01'),
 (4991, '62468', 23, '1646126172photo.jpg', '1646126172', '1646126172', '1646126172', '1646126172', '1646126172others.pdf', '2022-03-01 09:16:12'),
@@ -5353,7 +5354,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (5327, '75036', 25, '1647431837photo.jpg', '1647431837', '1647431837', '1647431837', '1647431837', '1647431837others.pdf', '2022-03-16 11:57:17'),
 (5328, '75039', 25, '1647432249photo.jpg', '1647432249', '1647432249', '1647432249', '1647432249', '1647432249others.pdf', '2022-03-16 12:04:09'),
 (5329, '75041', 25, '1647432910photo.jpg', '1647432910', '1647432910', '1647432910', '1647432910', '1647432910others.pdf', '2022-03-16 12:15:10');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (5330, '75042', 25, '1647433444photo.jpg', '1647433444', '1647433444', '1647433444', '1647433444', '1647433444others.pdf', '2022-03-16 12:24:04'),
 (5331, '75043', 25, '1647434578photo.jpg', '1647434578', '1647434578', '1647434578', '1647434578', '1647434578others.pdf', '2022-03-16 12:42:58'),
 (5332, '75044', 25, '1647435003photo.jpg', '1647435003', '1647435003', '1647435003', '1647435003', '1647435003others.pdf', '2022-03-16 12:50:03'),
@@ -5680,7 +5681,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (5653, '88445', 36, '1651043611photo.jpg', '1651043611application letter and resume.pdf', '1651043611certificates.pdf', '1651043611appointment letter.pdf', '1651043611', '1651043611others.pdf', '2022-04-27 07:13:31'),
 (5654, '88463', 36, '1651043719photo.jpg', '1651043719application letter.pdf', '1651043719certificate.pdf', '1651043719appointment letter.pdf', '1651043719', '1651043719others.pdf', '2022-04-27 07:15:19'),
 (5655, '78638', 42, '1651061738', '1651061738', '1651061738', '1651061738', '1651061738', '1651061738OTHERS.pdf', '2022-04-27 12:15:38');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (5656, '88439', 36, '1651063083PHOTO.jpg', '1651063083application letter.pdf', '1651063083certificates.pdf', '1651063083appointment letter.pdf', '1651063083', '1651063083OTHERS.pdf', '2022-04-27 12:38:03'),
 (5657, '88444', 36, '1651063540photo.jpg', '1651063540application letter.pdf', '1651063540', '1651063540appointment letter.pdf', '1651063540', '1651063540others.pdf', '2022-04-27 12:45:40'),
 (5658, '88462', 36, '1651064239photo.jpg', '1651064239application letter.pdf', '1651064239certificate.pdf', '1651064239appointment letter.pdf', '1651064239', '1651064239others.pdf', '2022-04-27 12:57:19'),
@@ -6001,7 +6002,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (5974, '58411', 22, '1662714752', '1662714752', '1662714752', '1662714752', '1662714752', '1662714752others.pdf', '2022-09-09 09:12:32'),
 (5975, '58411', 22, '1662714752', '1662714752', '1662714752', '1662714752', '1662714752', '1662714752others.pdf', '2022-09-09 09:12:32'),
 (5976, '61596', 22, '1662714847', '1662714847', '1662714847', '1662714847', '1662714847', '1662714847others.pdf', '2022-09-09 09:14:07');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (5977, '59884', 22, '1662714915', '1662714915', '1662714915', '1662714915', '1662714915discipline.pdf', '1662714915others.pdf', '2022-09-09 09:15:15'),
 (5978, '51869', 22, '1662714987photo.jpg', '1662714987', '1662714987', '1662714987', '1662714987', '1662714987others.pdf', '2022-09-09 09:16:27'),
 (5979, '60434', 22, '1662715052photo.jpg', '1662715052', '1662715052', '1662715052', '1662715052', '1662715052others.pdf', '2022-09-09 09:17:32'),
@@ -6347,7 +6348,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (6319, '86640', 28, '1665992429', '1665992429', '1665992429', '1665992429', '1665992429', '1665992429others.pdf', '2022-10-17 07:40:29'),
 (6320, '86641', 28, '1665992479', '1665992479', '1665992479', '1665992479', '1665992479', '1665992479others.pdf', '2022-10-17 07:41:19'),
 (6321, '86800', 28, '1665992698', '1665992698', '1665992698', '1665992698', '1665992698', '1665992698others.pdf', '2022-10-17 07:44:58');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (6322, '86801', 28, '1665992785', '1665992785', '1665992785', '1665992785', '1665992785', '1665992785others.pdf', '2022-10-17 07:46:25'),
 (6323, '86805', 28, '1665992872', '1665992872', '1665992872', '1665992872', '1665992872', '1665992872others.pdf', '2022-10-17 07:47:52'),
 (6324, '86806', 28, '1665992961', '1665992961', '1665992961', '1665992961', '1665992961', '1665992961others.pdf', '2022-10-17 07:49:21'),
@@ -6695,7 +6696,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (6666, '86841', 22, '1673779456pho.jpg', '1673779456', '1673779456', '1673779456', '1673779456', '1673779456others.pdf', '2023-01-15 10:44:16'),
 (6667, '86832', 22, '1673779491', '1673779491', '1673779491', '1673779491', '1673779491', '1673779491others.pdf', '2023-01-15 10:44:51'),
 (6668, '86139', 22, '1673779522pho.jpg', '1673779522', '1673779522', '1673779522', '1673779522', '1673779522others.pdf', '2023-01-15 10:45:22');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (6669, '86137', 22, '1673779552pho.jpg', '1673779552', '1673779552', '1673779552', '1673779552', '1673779552others.pdf', '2023-01-15 10:45:52'),
 (6670, '86140', 22, '1673779580pho.jpg', '1673779580', '1673779580', '1673779580', '1673779580', '1673779580others.pdf', '2023-01-15 10:46:20'),
 (6671, '86724', 22, '1673779613pho.jpg', '1673779613', '1673779613', '1673779613', '1673779613', '1673779613others.pdf', '2023-01-15 10:46:53'),
@@ -6991,7 +6992,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 (6961, '90898', 7110, '1690188752photo.jpg', '1690188752application letter and resume.pdf', '1690188752certificates.pdf', '1690188752appointment letter.pdf', '1690188752', '1690188752others.pdf', '2023-07-24 08:52:32'),
 (6962, '90896', 7110, '1690188792photo.jpg', '1690188792application letter.pdf', '1690188792certificate.pdf', '1690188792appointment letter.pdf', '1690188792', '1690188792others.pdf', '2023-07-24 08:53:12'),
 (6963, '90625', 7110, '1690188834photo.jpg', '1690188834application letter.pdf', '1690188834certificate.pdf', '1690188834appointment letter.pdf', '1690188834', '1690188834others.pdf', '2023-07-24 08:53:54');
-INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `document3`, `document4`, `document5`, `document6`, `uploaded_date`) VALUES
+INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`, `certificate`, `appointment`, `discipline`, `others`, `created_at`) VALUES
 (6964, '90390', 0, '1690189221photo.jpg', '1690189221application letter and resume.pdf', '1690189221certificates.pdf', '1690189221appointment letter.pdf', '1690189221', '1690189221others.pdf', '2023-07-24 09:00:21'),
 (6965, '79365', 24, '1690970777', '1690970777', '1690970777', '1690970777', '1690970777', '1690970777', '2023-08-02 10:06:17'),
 (6966, '9027', 40, '1690970941', '1690970941', '1690970941', '1690970941', '1690970941', '1690970941SICK LEAVE.pdf', '2023-08-02 10:09:01'),
@@ -7026,7 +7027,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `document2`, `
 
 CREATE TABLE `users` (
   `id` int(10) NOT NULL,
-  `name` varchar(100) NOT NULL,
+  `ticket_no` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `dept` varchar(400) DEFAULT NULL,
@@ -7040,7 +7041,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (-89991, 'C123-0-89991', 'OLLA RONALD', '', 'FACTORY ', 'PROCESS', '', '', '2023-06-13 21:00:00'),
 (1, 'Infotech', 'infotech', 'infotech', '', '', 'admin', 0x3136323631313533383273636f756c312e6a7067, '2021-07-12 18:43:02'),
 (2, 'Human Resource Officer', 'hr', 'hr@1', '', '', 'sub_admin', 0x3136323634343838363973636f756c312e6a7067, '2021-07-16 15:21:09'),
@@ -7526,7 +7527,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (42239, '635-1-42239', 'NAMATOVU LESTA', '', 'NAKAWUNGU', 'WELFARE', '', '', '0000-00-00 00:00:00'),
 (42243, '225-1-42243', 'NANGOSHA  PETER', '', 'NAKAWUNGU', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (42262, '637-3-42262', 'TIKO  ZUBEDA', '', 'BUNDO', 'WELFARE', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (42270, '728-3-42270', 'ANGURIA  JUSTINE', '', 'LUWALA', 'CROP PROTECTION', '', '', '0000-00-00 00:00:00'),
 (42278, '225-3-42278', 'ODONG  ALEX', '', 'NAKAWUNGU', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (42282, '721-3-42282', 'MASAMA  DAVID', '', 'LUGAZI', 'CROP PROCTION', '', '', '0000-00-00 00:00:00'),
@@ -8008,7 +8009,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (53823, '726-5-53823', 'BAYO  NELSON', '', 'KIVUVU', 'CROP PROTECTION', '', '', '0000-00-00 00:00:00'),
 (53827, '727-7-53827', 'ATIKU  EMMANUEL', '', 'BUNDO', 'CROP PROTECTION', '', '', '0000-00-00 00:00:00'),
 (53828, '730-8-53828', 'WADRI  BOSCO', '', 'BAMUNGAYA', 'CROP PROTECTION', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (53829, '222-1-53829', 'ALIOMA  JASPER', '', 'NTENGA', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (53831, '222-1-53831', 'NAMULINDWA  LUKIA', '', 'NTENGA', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (53951, '123-0-53951', 'NKEREGHE JAMES', '', 'FACTORY', 'BOLLING HOSE', '', '', '0000-00-00 00:00:00'),
@@ -8490,7 +8491,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (60333, '440-0-60333', 'DRICIRU JESCA', '', 'SECURITY', 'SECURITY', '', '', '0000-00-00 00:00:00'),
 (60334, '440-0-60334', 'BADARU EDITH', '', 'SECURITY', 'SECURITY', '', '', '0000-00-00 00:00:00'),
 (60335, '440-0-60335', 'OWALU STEPHEN', '', 'SECURITY', 'SECURITY', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (60338, '440-0-60338', 'ADIGA CHARLES', '', 'SECURITY', 'SECURITY', '', '', '0000-00-00 00:00:00'),
 (60339, '445-0-60339', 'ALIONI HILAL', '', 'NAKAWUNGU', 'SECURITY', '', '', '0000-00-00 00:00:00'),
 (60340, '449-0-60340', 'KALIGIDA IVAN', '', 'LUGALAMBO', 'SECURITY', '', '', '0000-00-00 00:00:00'),
@@ -8987,7 +8988,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (64947, '325-0-64947', 'EDIMU MARTIN LUTHER', '', 'MOTOR CANE TRANSPORT', 'M.C.T WORKSHOP', '', '', '0000-00-00 00:00:00'),
 (64950, '202-0-64950', 'KASADHA JULIUS', '', 'OUTGROWERS', 'OUTGROWER', '', '', '0000-00-00 00:00:00'),
 (64955, '221-3-64955', 'AVUGURU  ANTONETTE', '', 'LUGAZI', 'UPKEEP', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (64957, '221-3-64957', 'ADRIKO  CHARLES', '', 'LUGAZI', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (64962, '221-4-64962', 'ALIRU  JANE', '', 'LUGAZI', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (64966, '221-3-64966', 'EGO  MARTIN', '', 'LUGAZI', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
@@ -9478,7 +9479,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (68928, '134-0-68928', 'MORO SALIM', '', 'FACTORY', 'CENTRIFUGALS', '', '', '0000-00-00 00:00:00'),
 (68929, '104-0-68929', 'ODAMA DERRICK', '', 'FACTORY', 'AUTOMOBILE', '', '', '0000-00-00 00:00:00'),
 (68932, '7OP-0-68932', 'MUHANGI NICHOLAS', '', 'GEN. ADMIN. PLANTATION', 'G.M. AGRICULTURE', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (68934, '901-0-68934', 'ACHIENG GLADYS', '', 'NEW SITE', 'NEW SITE', '', '', '0000-00-00 00:00:00'),
 (68935, '111-0-68935', 'LUKEITA GEOFREY', '', 'FACTORY', 'CANE HANDLING', '', '', '0000-00-00 00:00:00'),
 (68970, '216-3-68970', 'ALUMA  RICHARD', '', 'KIVUVU', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
@@ -9967,7 +9968,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (73261, '321-0-73261', 'OJUMBI  JOHN', '', 'NAGOJJE', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (73268, '321-0-73268', 'ODOI  GEOFFREY', '', 'NAGOJJE', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (73280, '713-1-73280', 'OKECHO  GODFREY', '', 'WAGALA', 'ADMINISTRATION/OFFICE', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (73295, '325-0-73295', 'EFUMBI MICHEAL', '', 'MOTOR CANE TRANSPORT', 'M.C.T WORKSHOP', '', '', '0000-00-00 00:00:00'),
 (73311, '211-1-73311', 'ISAA  MICHAEL', '', 'LUGAZI', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (73334, '211-1-73334', 'DRANDEMA PHILUAM', '', 'LUGAZI', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
@@ -10477,7 +10478,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (76826, '228-4-76826', 'AJAMBO ANGELLA', '', 'LUWALA', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (76827, '828-4-76827', 'GOVULE ROY', '', 'LUWALA', 'SPRAYING', '', '', '0000-00-00 00:00:00'),
 (76828, '228-5-76828', 'ALETIRU LILLIAN', '', 'LUWALA', 'UPKEEP', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (76829, '228-5-76829', 'KIKAZIKI CISSY', '', 'LUWALA', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (76832, '228-5-76832', 'ADONGO MANGADALENA', '', 'LUWALA', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
 (76833, '228-5-76833', 'AKOT TOPISTA', '', 'LUWALA', 'UPKEEP', '', '', '0000-00-00 00:00:00'),
@@ -10982,7 +10983,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (79982, '980-0-79982', 'MAKANDE MUZAFARU', '', 'PROJECTS', 'PROJECTS', '', '', '0000-00-00 00:00:00'),
 (80000, '728-0-80000', 'ODUR DENIS', '', 'LUWALA', 'CROP PROTECTION', '', '', '0000-00-00 00:00:00'),
 (80039, '214-1-80039', 'OTIM MOSES', '', 'TEBALOWOZA', 'HARVESTING', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (80040, '214-1-80040', 'ONAMA PATRICK', '', 'TEBALOWOZA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (80050, '217-0-80050', 'OMARA GEOFFREY', '', 'BUNDO', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (80067, '213-2-80067', 'EBONG THOMAS', '', 'WAGALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
@@ -11486,7 +11487,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (83148, '218-2-83148', 'BAHATI EMMANUEL', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (83151, '218-4-83151', 'IKOO  VINCENT', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (83166, '214-2-83166', 'AGEA MORISH', '', 'TEBALOWOZA', 'HARVESTING', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (83168, '214-2-83168', 'KWENYA EMMANUEL', '', 'TEBALOWOZA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (83200, '716-1-83200', 'OPIO SAM ALEX', '', 'KIVUVU', 'ADMINISTRATION/OFFICE', '', '', '0000-00-00 00:00:00'),
 (83216, '218-3-83216', 'ABAA JAMES', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
@@ -11984,7 +11985,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (84670, '218-0-84670', 'OKIA NORMAN', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (84671, '218-2-84671', 'PARIYO ISAAC', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (84673, '218-2-84673', 'OKELLO DENIS', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (84674, '218-2-84674', 'OKELLO JIMMY', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (84678, '218-3-84678', 'ABWOL DAVID', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (84680, '218-3-84680', 'OKENG DENISH', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
@@ -12469,7 +12470,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (85443, '216-2-85443', 'AYIKOBUA MARTIN', '', 'KIVUVU', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (85446, '216-3-85446', 'OBUA ISAAC', '', 'KIVUVU', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (85447, '216-3-85447', 'AKELLO AGUSTINE', '', 'KIVUVU', 'HARVESTING', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (85450, '211-2-85450', 'BULENI SIMON', '', 'LUGAZI', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (85451, '217-2-85451', 'MUGERWA FALUKU', '', 'BUNDO', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (85452, '217-2-85452', 'WANGA HERBERT', '', 'BUNDO', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
@@ -12951,7 +12952,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (86037, '218-0-86037', 'AGEA GEOFREY OLENG', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (86038, '218-0-86038', 'OJOK  RONALD', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (86039, '218-0-86039', 'TODI   ALEX', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (86040, '218-2-86040', 'KIZA  AMBROSE', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (86041, '218-2-86041', 'ANGOLERE MARIKO', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (86042, '218-2-86042', 'OJOK  WALTER', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
@@ -13439,7 +13440,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (86586, '249-0-86586', 'ADUKULE EDWARD', '', 'LUGALAMBO', 'UPKEEP ADMINISTRATION', '', '', '0000-00-00 00:00:00'),
 (86587, '218-0-86587', 'ADRIKO  TOM', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (86588, '218-0-86588', 'DRALEKU GEORGE', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (86589, '218-0-86589', 'OBINDU SIMON', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (86590, '218-0-86590', 'ALUMA  SADICK', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
 (86591, '218-0-86591', 'ASUA APOLOND', '', 'LUWALA', 'HARVESTING', '', '', '0000-00-00 00:00:00'),
@@ -13925,7 +13926,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (87132, '8FR-0-87132', 'ACHIDRI GEOFREY', '', 'FORESTRY', 'FORESTRY', '', '', '0000-00-00 00:00:00'),
 (87133, '8GC-0-87133', 'NANONO JACKLINE', '', 'GOLF', 'GOLF', '', '', '0000-00-00 00:00:00'),
 (87134, '246-0-87134', 'OBETI FELIX', '', 'KIVUVU', 'UPKEEP ADMINISTRATION', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (87135, '247-0-87135', 'GIFT GULBERT', '', 'BUNDO', 'UPKEEP ADMINISTRATION', '', '', '0000-00-00 00:00:00'),
 (87136, '200-0-87136', 'ORALE GEOFFREY', '', 'GEN. ADMIN. PLANTATION', 'G.M. AGRICULTURE', '', '', '0000-00-00 00:00:00'),
 (87137, '719-0-87137', 'NAMAGANDA REBECCA', '', 'LUGALAMBO', 'ADMINISTRATION/OFFICE', '', '', '0000-00-00 00:00:00'),
@@ -14409,7 +14410,7 @@ INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `r
 (89315, '321-2-89315', 'ODYENY JIMMY', '', 'AGRICULTURE', 'NAGOJJE', '', '', '0000-00-00 00:00:00'),
 (89316, '321-2-89316', 'ACUNGE DENISH', '', 'AGRICULTURE', 'NAGOJJE', '', '', '0000-00-00 00:00:00'),
 (89317, '321-2-89317', 'OGWANG DENISH', '', 'AGRICULTURE', 'NAGOJJE', '', '', '0000-00-00 00:00:00');
-INSERT INTO `users` (`id`, `name`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
+INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
 (89318, '321-2-89318', 'ADINGA DANIEL', '', 'AGRICULTURE', 'NAGOJJE', '', '', '0000-00-00 00:00:00'),
 (89319, '321-2-89319', 'OBINY ALEX', '', 'AGRICULTURE', 'NAGOJJE', '', '', '0000-00-00 00:00:00'),
 (89320, '321-2-89320', 'NEDI GILBERT', '', 'AGRICULTURE', 'NAGOJJE', '', '', '0000-00-00 00:00:00'),

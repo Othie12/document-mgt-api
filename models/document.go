@@ -6,9 +6,14 @@ import (
 
 type Document struct {
 	gorm.Model
-	UserID    uint64
-	DoctypeID uint64
-	Filepath  string
-	Doctype   Doctype
-	User      User
+	UserID      int
+	DeptID      uint
+	Document1   string
+	Application string
+	Certificate string
+	Appointment string
+	Discipline  string
+	Others      string
+	//	Department  Department `gorm:"foreignKey:DeptID"`
+	//	User        User       `gorm:"foreignKey:UserID"`
 }

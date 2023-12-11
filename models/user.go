@@ -1,17 +1,20 @@
 package models
 
 import (
-	"gorm.io/gorm"
+	"time"
 )
 
 type User struct {
-	gorm.Model
-	Name      string
-	Username  string
-	Password  string
-	SectionID string
-	Role      string
-	Photo     string
-	Section   Section
-	Documents []Document
+	ID       []uint8 `gorm:"primaryKey"`
+	TicketNo string  `json:"name"`
+	Username string  `json:"username"`
+	Password string  `json:"password"`
+	Dept     string
+	Sec      string
+	Role     string `json:"role"`
+	Photo    string
+	//SectionID uint
+	Date time.Time
+	//Section   Section
+	Docs []Doc
 }

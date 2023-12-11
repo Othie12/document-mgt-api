@@ -1,6 +1,8 @@
 package models
 
 import (
+	"database/sql"
+
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
@@ -8,13 +10,20 @@ import (
 var DB *gorm.DB
 
 func Connect() {
-	dsn := "root:@tcp(127.0.0.1:3306)/hrms_go?charset=utf8mb4&parseTime=True&loc=Local"
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	dsn := "root:@tcp(127.0.0.1:3306)/hrms?charset=utf8mb4&parseTime=True&loc=Local"
+	sqldb, err := sql.Open("mysql", dsn)
+	if err != nil {
+		panic("Failed to open sql db: " + err.Error())
+	}
+	db, err := gorm.Open(mysql.New(mysql.Config{
+		Conn: sqldb,
+	}), &gorm.Config{})
+
 	if err != nil {
 		panic("Database connection error: " + err.Error())
 	}
 
-	err = db.AutoMigrate(&Department{}, &Doctype{}, &Section{}, &User{}, &Document{})
+	err = db.AutoMigrate(&Department{}, &Section{}, &Doc{}, &User{}, &Document{})
 	if err != nil {
 		panic("Migration failed: " + err.Error())
 	}

@@ -5,7 +5,7 @@ import "gorm.io/gorm"
 type Section struct {
 	gorm.Model
 	Name         string
-	DepartmentID uint64
+	DepartmentID uint
 	Department   Department
-	Users        []User
+	//Users        []User
 }
