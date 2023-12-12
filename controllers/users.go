@@ -38,6 +38,19 @@ func StoreUsers(c *gin.Context) {
 	c.JSON(http.StatusOK, &user)
 }
 
+func ShowUser(c *gin.Context) {
+	id, _ := strconv.ParseUint(c.Param("id"), 10, 64)
+	var user models.User
+	user.ID = uint(id)
+
+	result := models.DB.First(&user)
+	if result.Error != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Failed to get record from database: " + result.Error.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, user)
+}
+
 func SearchByTicketNo(c *gin.Context) {
 	var users []models.User
 	searchTerm := c.Param("searchTerm")

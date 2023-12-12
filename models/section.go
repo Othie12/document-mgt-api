@@ -7,5 +7,5 @@ type Section struct {
 	Name         string
 	DepartmentID uint
 	Department   Department
-	//Users        []User
+	Users        []User
 }

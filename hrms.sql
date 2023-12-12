@@ -7026,7 +7026,7 @@ INSERT INTO `documents` (`id`, `user_id`, `dept_id`, `document1`, `application`,
 --
 
 CREATE TABLE `users` (
-  `id` int(10) NOT NULL,
+  `id` bigint(10) NOT NULL,
   `ticket_no` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
@@ -7042,7 +7042,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `ticket_no`, `username`, `password`, `dept`, `section`, `role`, `photo`, `date`) VALUES
-(-89991, 'C123-0-89991', 'OLLA RONALD', '', 'FACTORY ', 'PROCESS', '', '', '2023-06-13 21:00:00'),
 (1, 'Infotech', 'infotech', 'infotech', '', '', 'admin', 0x3136323631313533383273636f756c312e6a7067, '2021-07-12 18:43:02'),
 (2, 'Human Resource Officer', 'hr', 'hr@1', '', '', 'sub_admin', 0x3136323634343838363973636f756c312e6a7067, '2021-07-16 15:21:09'),
 (3, 'Ruth', 'ruth', 'ruth@1', '', '', 'sub_admin', '', '2021-07-27 13:08:42'),

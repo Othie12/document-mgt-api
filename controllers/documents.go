@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"hrms/models"
 	"net/http"
 	"os"
@@ -22,7 +23,7 @@ func IndexDocuments(c *gin.Context) {
 }
 
 func StoreDocuments(c *gin.Context) {
-	id, _ := strconv.Atoi(c.Param("id"))
+	id, _ := strconv.ParseUint(c.Param("id"), 10, 64)
 
 	application, _ := c.FormFile("applciation")
 	certificate, _ := c.FormFile("certificate")
@@ -30,7 +31,7 @@ func StoreDocuments(c *gin.Context) {
 	discipline, _ := c.FormFile("discipline")
 	others, _ := c.FormFile("others")
 
-	dst := os.Getenv("UPLOAD_PATH")
+	dst := "./public"
 
 	err := c.SaveUploadedFile(application, dst)
 	if err != nil {
@@ -63,7 +64,7 @@ func StoreDocuments(c *gin.Context) {
 	}
 
 	document := models.Document{
-		UserID:      id,
+		UserID:      uint(id),
 		Application: filepath.Join(dst, application.Filename),
 		Certificate: filepath.Join(dst, certificate.Filename),
 		Appointment: filepath.Join(dst, appointment.Filename),
@@ -89,7 +90,7 @@ func UpdateDocument(c *gin.Context) {
 	//get the filename (application/certificate/othier)
 	name := c.Param("name")
 
-	dst := os.Getenv("UPLOAD_PATH")
+	dst := "./public"
 	file, _ := c.FormFile("file")
 
 	err := c.SaveUploadedFile(file, dst)
@@ -103,27 +104,67 @@ func UpdateDocument(c *gin.Context) {
 	c.JSON(http.StatusOK, document)
 }
 
-func AddDocument(c *gin.Context) {
+func FetchByUserId(c *gin.Context) {
+	var document models.Document
+
 	userId, err := strconv.ParseUint(c.Param("user_id"), 10, 64)
-	name := c.Param("name")
 	if err != nil {
 		c.JSON(http.StatusNotImplemented, gin.H{"error": "failed to get user id: " + err.Error()})
 		return
 	}
 
-	dst := os.Getenv("UPLOAD_PATH")
-	file, _ := c.FormFile("file")
+	result := models.DB.Where("user_id = ?", userId).First(&document)
+	if result.Error != nil {
+		c.JSON(http.StatusOK, gin.H{"error": "Failed to get record from database: " + result.Error.Error()})
+		return
+	}
+	c.JSON(http.StatusOK, document)
+}
 
-	err = c.SaveUploadedFile(file, dst)
+func AddDocument(c *gin.Context) {
+	userId, err := strconv.ParseUint(c.Param("user_id"), 10, 64)
+	name := c.Param("name")
 	if err != nil {
-		c.JSON(http.StatusNotImplemented, gin.H{"error": "failed to save to db: " + err.Error()})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "failed to get user id: " + err.Error()})
+		return
+	}
+
+	dst := "./public/"
+	fmt.Println(dst)
+
+	// Check if the "uploads" directory exists, create it if not
+	if _, err := os.Stat(dst); os.IsNotExist(err) {
+		err = os.MkdirAll(dst, 0755)
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to create 'uploads' directory"})
+			return
+		}
+	}
+
+	file, err := c.FormFile("file")
+	if err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "failed to get the file: " + err.Error()})
+		return
+	}
+
+	// Check for the existence of the file before saving
+	filePath := filepath.Join(dst, file.Filename)
+	if _, err := os.Stat(filePath); err == nil {
+		c.JSON(http.StatusConflict, gin.H{"error": "file with the same name already exists"})
+		return
+	}
+
+	// Save the file
+	err = c.SaveUploadedFile(file, filePath)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to save the file: " + err.Error()})
 		return
 	}
 
 	document := models.Doc{
 		UserID:   uint(userId),
 		Name:     name,
-		Filepath: filepath.Join(dst, file.Filename),
+		Filepath: filePath,
 	}
 
 	models.DB.Create(&document)
