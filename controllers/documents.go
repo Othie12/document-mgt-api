@@ -3,10 +3,13 @@ package controllers
 import (
 	"fmt"
 	"hrms/models"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
@@ -90,7 +93,7 @@ func UpdateDocument(c *gin.Context) {
 	//get the filename (application/certificate/othier)
 	name := c.Param("name")
 
-	dst := "./public"
+	dst := "./public/"
 	file, _ := c.FormFile("file")
 
 	err := c.SaveUploadedFile(file, dst)
@@ -130,7 +133,6 @@ func AddDocument(c *gin.Context) {
 	}
 
 	dst := "./public/"
-	fmt.Println(dst)
 
 	// Check if the "uploads" directory exists, create it if not
 	if _, err := os.Stat(dst); os.IsNotExist(err) {
@@ -147,24 +149,30 @@ func AddDocument(c *gin.Context) {
 		return
 	}
 
-	// Check for the existence of the file before saving
-	filePath := filepath.Join(dst, file.Filename)
-	if _, err := os.Stat(filePath); err == nil {
-		c.JSON(http.StatusConflict, gin.H{"error": "file with the same name already exists"})
-		return
+	var user models.User
+	user.ID = uint(userId)
+	result := models.DB.Find(&user)
+	if result.Error != nil {
+		c.JSON(400, gin.H{"error": result.Error.Error()})
 	}
+
+	file.Filename = fmt.Sprintf("%s_%s_%s", user.TicketNo, strings.TrimSpace(name[0:3]), time.Now())
+
+	// Check for the existence of the file before saving
+	filePath := filepath.Join(dst, file.Filename+".pdf")
 
 	// Save the file
 	err = c.SaveUploadedFile(file, filePath)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to save the file: " + err.Error()})
+		c.JSON(http.StatusNotImplemented, gin.H{"error": "failed to save the file: " + err.Error()})
+		log.Println(err.Error())
 		return
 	}
 
 	document := models.Doc{
 		UserID:   uint(userId),
 		Name:     name,
-		Filepath: filePath,
+		Filepath: fmt.Sprintf("/%s", filePath),
 	}
 
 	models.DB.Create(&document)

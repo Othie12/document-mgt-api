@@ -24,16 +24,18 @@ func Routes() {
 
 	models.Connect()
 
-	r.Static("/public", "./public")
+	r.Static("public", "./public")
 
 	r.POST("/login", controllers.Login)
 
 	r.GET("/users/:limit/:offset", controllers.IndexUsers)
 	r.POST("/users/store", controllers.StoreUsers)
 	r.GET("/users/show/:id", controllers.ShowUser)
+	r.PATCH("/users/uploadPhoto/:id", controllers.UploadPhoto)
+	r.GET("/searchByTicketNo/:searchTerm", controllers.SearchByTicketNo)
+	r.GET("/searchByName/:searchTerm", controllers.SearchByName)
 
 	r.GET("/documents/:limit/:offset", controllers.IndexDocuments)
-	r.GET("/searchByTicketNo/:searchTerm", controllers.SearchByTicketNo)
 	r.GET("/user/documents/:user_id", controllers.FetchByUserId)
 	r.POST("/documents/store/:userid", controllers.StoreDocuments)
 	r.POST("/add-documents/:name/:user_id", controllers.AddDocument)
