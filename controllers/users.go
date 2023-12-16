@@ -43,9 +43,9 @@ func StoreUsers(c *gin.Context) {
 }
 
 func ShowUser(c *gin.Context) {
-	id, _ := strconv.ParseUint(c.Param("id"), 10, 64)
+	id := c.Param("id")
 	var user models.User
-	user.ID = uint(id)
+	user.ID = id
 
 	result := models.DB.Preload("Docs").Find(&user)
 	if result.Error != nil {

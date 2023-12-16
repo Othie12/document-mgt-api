@@ -23,10 +23,5 @@ func Connect() {
 		panic("Database connection error: " + err.Error())
 	}
 
-	err = db.AutoMigrate(&Department{}, &Section{}, &Doc{}, &User{}, &Document{})
-	if err != nil {
-		panic("Migration failed: " + err.Error())
-	}
-
 	DB = db
 }

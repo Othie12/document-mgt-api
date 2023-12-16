@@ -7,18 +7,18 @@ import (
 )
 
 type User struct {
-	gorm.Model
-	TicketNo    string    `json:"ticket_no"`
-	Username    string    `json:"username"`
-	Password    string    `json:"password"`
-	Dept        string    `json:"dept"`
-	Sec         string    `json:"sec"`
-	Role        string    `json:"role"`
-	Designation string    `json:"designation"`
-	Doj         time.Time `json:"doj"`
-	Photo       string    `json:"photo"`
-	SectionID   uint      `json:"section_id"`
-	Date        time.Time `json:"date"`
-	Section     Section   `json:"section"`
-	Docs        []Doc     `json:"docs"`
+	ID          string `gorm:"type:varchar(20);not null;primarykey"`
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
+	DeletedAt   gorm.DeletedAt `gorm:"index"`
+	TicketNo    string         `json:"ticket_no"`
+	Username    string         `json:"username"`
+	Password    string         `json:"password"`
+	Dept        string         `json:"dept"`
+	Section     string         `json:"section" gorm:"type:varchar(20)"`
+	Role        string         `json:"role"`
+	Designation string         `json:"designation"`
+	Doj         time.Time      `json:"doj"`
+	Photo       string         `json:"photo"`
+	Docs        []Doc          `json:"docs"`
 }

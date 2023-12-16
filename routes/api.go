@@ -14,13 +14,10 @@ func Init() {
 func Routes() {
 
 	r := gin.Default()
-	// Use CORS middleware
-	//config := cors.DefaultConfig()
-	//config.AllowOrigins = []string{"*"}
-	//r.Use(cors.New(config))
+
 	r.Use(CORSMiddleware())
 
-	r.MaxMultipartMemory = 8 << 20 // 8 MiB
+	r.MaxMultipartMemory = 400 << 20 // 400 MiB
 
 	models.Connect()
 
@@ -35,11 +32,7 @@ func Routes() {
 	r.GET("/searchByTicketNo/:searchTerm", controllers.SearchByTicketNo)
 	r.GET("/searchByName/:searchTerm", controllers.SearchByName)
 
-	r.GET("/documents/:limit/:offset", controllers.IndexDocuments)
-	r.GET("/user/documents/:user_id", controllers.FetchByUserId)
-	r.POST("/documents/store/:userid", controllers.StoreDocuments)
 	r.POST("/add-documents/:name/:user_id", controllers.AddDocument)
-	r.PATCH("/documents/update/:id/:name", controllers.UpdateDocument)
 	r.Run(":8080")
 }
 
