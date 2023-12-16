@@ -26,7 +26,6 @@ func Routes() {
 	r.POST("/login", controllers.Login)
 
 	r.GET("/users/:limit/:offset", controllers.IndexUsers)
-	r.POST("/users/store", controllers.StoreUsers)
 	r.GET("/users/show/:id", controllers.ShowUser)
 	r.PATCH("/users/uploadPhoto/:id", controllers.UploadPhoto)
 	r.GET("/searchByTicketNo/:searchTerm", controllers.SearchByTicketNo)

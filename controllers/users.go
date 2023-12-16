@@ -25,23 +25,6 @@ func IndexUsers(c *gin.Context) {
 	c.JSON(200, users)
 }
 
-func StoreUsers(c *gin.Context) {
-	var user models.User
-	err := c.ShouldBindJSON(&user)
-	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Failed to bind json: " + err.Error()})
-		return
-	}
-
-	id := models.DB.Save(&user)
-	//id := models.DB.Create(&user)
-	if id == nil {
-		c.JSON(http.StatusConflict, gin.H{"error": "Failed to store to database"})
-		return
-	}
-	c.JSON(http.StatusOK, &user)
-}
-
 func ShowUser(c *gin.Context) {
 	id := c.Param("id")
 	var user models.User
